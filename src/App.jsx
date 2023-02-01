@@ -4,23 +4,32 @@ import { useState } from "react";
 // A state in react is a variable that stores data that can be changed
 
 function App() {
-	// let age = 0;
-	let [age, setAge] = useState(0); // the age is a variable that sets value and the setAge is the function that lets the age variable to be changed
+	// const [inputValue, setInputValue] = useState("");
+	// const [showText, setShowText] = useState(true);
+	const [textColor, setTextColor] = useState("black");
 
-	// Here we cannot change the value of age because react only rerender once. And React don't know that the value of age has changed and it will just display the default value of age which is 0. So we must use State to change the value of age.
-	const increaseAge = () => {
-		setAge(age + 1); // the age will change depending on the setAge function
-		// age++;
-		// document.getElementById("age").innerHTML = age; this is an old way of doing it in Javascript
-		console.log(age);
+	const handleInputChange = (e) => {
+		// an event is used to grab the information in the input
+
+		setInputValue(e.target.value); // this is how we change the state. We used the setInputValue function to change to value of the inputValue state or variable
+		// console.log(e.target.value)
 	};
 
 	return (
 		<div className="App">
-			{age}
-			<br />
-			{/* <h2 id="age"></h2> */}
-			<button onClick={increaseAge}>Increase Age</button>
+			{/* <input type="text" onChange={handleInputChange} /> {inputValue} */}
+			<button
+				onClick={() => {
+					// setShowText(!showText); // here we used an anonymous function and change the text by setting the opposite of the showText boolean value
+
+					setTextColor(textColor === "black" ? "red" : "black"); // here we used ternary operator to change the text color behavior into black if its red and vice versa
+				}}
+			>
+				Show / Hide
+			</button>
+
+			{/* {showText && <h1>Hello World</h1>} */}
+			<h1 style={{ color: textColor }}>Hello! I'm Christian!</h1>
 		</div>
 	);
 }
