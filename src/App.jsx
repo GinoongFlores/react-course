@@ -5,15 +5,13 @@ import { useState } from "react";
 
 function App() {
 	const [count, setCount] = useState(0);
+
+	const addCount = () => {
+		setCount(count + 1);
+	};
 	return (
 		<div className="App">
-			<button
-				onClick={() => {
-					setCount(count + 1);
-				}}
-			>
-				Increase
-			</button>
+			<button onClick={addCount}>Increase</button>
 			<button
 				onClick={() => {
 					// an anonymous function is a function that doesn't have a name. It is used when you don't want to create a function and just want to use it once.
