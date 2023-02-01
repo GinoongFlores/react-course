@@ -8,12 +8,11 @@ function App() {
 	return (
 		<div className="App">
 			<>
-				{/* <h1>{names.toString()}</h1> */}
-				{names.map((name, key) => {
+				{/* {names.map((name, key) => {
 					// a map method with a callback function. A callback function means that the function is called when the map method is called.
 
 					return <h1 key={key}>{name}</h1>; // we can also pass here the key to remove the warning of not using it. But you cannot use the key as a prop in the child component.
-				})}
+				})} */}
 			</>
 		</div>
 	);
