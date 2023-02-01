@@ -1,6 +1,7 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
+import Users from "./User";
 
 function App() {
 	// const names = ["Christian", "Hannah", "Jason", "Jaycon", "Philipp", "Paul"];
@@ -42,16 +43,5 @@ function App() {
 		</div>
 	);
 }
-
-const Users = (props) => {
-	return (
-		<>
-			<div>
-				{/* here we can use props as an parameter as a reference of the user's array */}
-				{props.name} {props.age}
-			</div>
-		</>
-	);
-};
 
 export default App;
