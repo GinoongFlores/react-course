@@ -34,7 +34,8 @@ function App() {
 							{/* we need to call the user array's properties to get its values */}
 							{/* {user.name} {user.age} */}
 
-							{/* we can also pass the user array as a prop to the Users component */}
+							{/* we can also pass the user array as a prop to the Users component */
+							/* Or here we can use the props from the User component and passed the arrays object property */}
 							<Users name={user.name} age={user.age} />
 						</>
 					);
