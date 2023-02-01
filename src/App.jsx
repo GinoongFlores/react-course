@@ -4,36 +4,32 @@ import { useState } from "react";
 // A state in react is a variable that stores data that can be changed
 
 function App() {
-	const [count, setCount] = useState(0);
+	const [todoList, setTodoList] = useState([]);
+	const [newTask, setNewTask] = useState("");
 
-	const addCount = () => {
-		setCount(count + 1);
+	const handleChange = (event) => {
+		setNewTask(event.target.value); // setNewTask is a function that sets the value of newTask
 	};
+
+	const addTasks = () => {
+		const newTodoList = [...todoList, newTask]; // here we are copying everything from the todoList and adding the newTask to it
+		setTodoList(newTodoList); // here we set the newTodoList function to the newTodoList
+		// console.log(newTodoList);
+	};
+
 	return (
 		<div className="App">
-			<button onClick={addCount}>Increase</button>
-			<button
-				onClick={() => {
-					// an anonymous function is a function that doesn't have a name. It is used when you don't want to create a function and just want to use it once.
-					setCount(count - 1);
-					if (count === 0) {
-						// set the count to 0 if it is less than 0
-						setCount(0);
-					}
-				}}
-			>
-				Decrease
-			</button>
-			<button
-				onClick={() => {
-					setCount(0);
-				}}
-			>
-				Reset
-			</button>
+			<div className="addTask">
+				<input type="text" onChange={handleChange} />
+				<button onClick={addTasks}>Add Task</button>
+			</div>
 
-			<br />
-			{count}
+			{/* Lists of added tasks */}
+			<div className="list">
+				{todoList.map((task) => {
+					return <h1>{task}</h1>;
+				})}
+			</div>
 		</div>
 	);
 }
