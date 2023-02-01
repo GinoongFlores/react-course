@@ -4,32 +4,38 @@ import { useState } from "react";
 // A state in react is a variable that stores data that can be changed
 
 function App() {
-	// const [inputValue, setInputValue] = useState("");
-	// const [showText, setShowText] = useState(true);
-	const [textColor, setTextColor] = useState("black");
-
-	const handleInputChange = (e) => {
-		// an event is used to grab the information in the input
-
-		setInputValue(e.target.value); // this is how we change the state. We used the setInputValue function to change to value of the inputValue state or variable
-		// console.log(e.target.value)
-	};
-
+	const [count, setCount] = useState(0);
 	return (
 		<div className="App">
-			{/* <input type="text" onChange={handleInputChange} /> {inputValue} */}
 			<button
 				onClick={() => {
-					// setShowText(!showText); // here we used an anonymous function and change the text by setting the opposite of the showText boolean value
-
-					setTextColor(textColor === "black" ? "red" : "black"); // here we used ternary operator to change the text color behavior into black if its red and vice versa
+					setCount(count + 1);
 				}}
 			>
-				Show / Hide
+				Increase
+			</button>
+			<button
+				onClick={() => {
+					// an anonymous function is a function that doesn't have a name. It is used when you don't want to create a function and just want to use it once.
+					setCount(count - 1);
+					if (count === 0) {
+						// set the count to 0 if it is less than 0
+						setCount(0);
+					}
+				}}
+			>
+				Decrease
+			</button>
+			<button
+				onClick={() => {
+					setCount(0);
+				}}
+			>
+				Reset
 			</button>
 
-			{/* {showText && <h1>Hello World</h1>} */}
-			<h1 style={{ color: textColor }}>Hello! I'm Christian!</h1>
+			<br />
+			{count}
 		</div>
 	);
 }
