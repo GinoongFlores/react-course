@@ -1,7 +1,7 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
-import Users from "./User";
+import Planets from "./Planets";
 
 function App() {
 	const planets = [
@@ -17,23 +17,32 @@ function App() {
 		<div className="App">
 			<>
 				{/* Objective: Display only gas planets */}
-				<h1>Gas Planets</h1>
+				<h1>Gas Planets - using props</h1>
 				{planets.map((planet, key) => {
+					{
+						/* sample: using if statement */
+						{
+							/* if (planet.isGasPlanet) return <h1>{planet.name}</h1>; */
+						}
+					}
+
 					return (
 						<div>
-							<h2 key={key}>{planet.isGasPlanet && planet.name}</h2>
+							{/* Another example: <h2 key={key}>{planet.isGasPlanet && planet.name}</h2> */}
+							<Planets key={key} planets={planet.isGasPlanet && planet.name} />
 						</div>
 					);
 				})}
 
+				<h1>Gas Planet - using map only</h1>
+				{planets.map(
+					(planet, key) => planet.isGasPlanet && <h2>{planet.name}</h2>
+				)}
+
 				<h1>Is not a Gas Planet</h1>
-				{planets.map((planet, keys) => {
-					return (
-						<div>
-							<h2 key={keys}>{planet.isGasPlanet || planet.name}</h2>
-						</div>
-					);
-				})}
+				{planets.map(
+					(planet, key) => !planet.isGasPlanet && <h2>{planet.name}</h2>
+				)}
 			</>
 		</div>
 	);
