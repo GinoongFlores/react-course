@@ -4,39 +4,34 @@ import "./App.css";
 import Users from "./User";
 
 function App() {
-	// const names = ["Christian", "Hannah", "Jason", "Jaycon", "Philipp", "Paul"];
-	const users = [
-		{
-			name: "Christian",
-			age: 21,
-		},
-		{
-			name: "Hannah",
-			age: 20,
-		},
-		{
-			name: "Jason",
-			age: 22,
-		},
+	const planets = [
+		{ name: "Mars", isGasPlanet: false },
+		{ name: "Earth", isGasPlanet: false },
+		{ name: "Jupiter", isGasPlanet: true },
+		{ name: "Venus", isGasPlanet: false },
+		{ name: "Neptune", isGasPlanet: true },
+		{ name: "Uranus", isGasPlanet: true },
 	];
 
 	return (
 		<div className="App">
 			<>
-				{/* {names.map((name, key) => {
-					// a map method with a callback function. A callback function means that the function is called when the map method is called.
-
-					return <h1 key={key}>{name}</h1>; // we can also pass here the key to remove the warning of not using it. But you cannot use the key as a prop in the child component.
-				})} */}
-				{users.map((user, key) => {
+				{/* Objective: Display only gas planets */}
+				<h1>Gas Planets</h1>
+				{planets.map((planet, key) => {
 					return (
-						<>
-							{/* we need to call the user array's properties to get its values */}
-							{/* {user.name} {user.age} */}
+						<div>
+							<h2 key={key}>{planet.isGasPlanet && planet.name}</h2>
+						</div>
+					);
+				})}
 
-							{/* we can also pass the user array as a prop to the Users component */}
-							<Users name={user.name} age={user.age} />
-						</>
+				<h1>Is not a Gas Planet</h1>
+				{planets.map((planet, keys) => {
+					return (
+						<div>
+							<h2 key={keys}>{planet.isGasPlanet || planet.name}</h2>
+						</div>
 					);
 				})}
 			</>
