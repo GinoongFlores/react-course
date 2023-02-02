@@ -1,35 +1,35 @@
-export const Practice = () => {
-	// anonymous function
-	<button
-		onClick={() => {
-			console.log("Hello World");
-		}}
-	></button>;
 
-	// working with conditionals using ternary operators
+// anonymous function
+{/* <button
+	onClick={() => {
+		console.log("Hello World");
+	}}
+></button>; */}
 
-	let age = 20;
+// working with conditionals using ternary operators
 
-	// instead of this
-	// if (age > 22) {
-	// 	console.log(name);
-	// } else {
-	// 	name = "Paul";
-	// 	console.log(name);
-	// }
+let age = 20;
 
-	// we do this for if-else
-	name = age > 22 ? "Christian" : "Paul";
-	// or much better this
+// instead of this
+// if (age > 22) {
+// 	console.log(name);
+// } else {
+// 	name = "Paul";
+// 	console.log(name);
+// }
 
-	// using logical operators
-	let name = age > 18 && "Christian"; // here name is equal to Christian and will only display it if the condition is true
-	// the output will be "Christian"
+// we do this for if-else
+name = age > 22 ? "Christian" : "Paul";
 
-	return <Component />;
-};
+// or much better this
+
+// using logical operators
+name = age > 18 && "Christian"; // here name is equal to Christian and will only display it if the condition is true
+console.log(name)
+// the output will be "Christian"
+
 
 // in react we can use the same logic as above
 export const Component = () => {
-	return age > 22 ? <h1>Christian</h1> : <h1>Paul</h1>;
+	// return age > 22 ? <h1>Christian</h1> : <h1>Paul</h1>;
 };
