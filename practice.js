@@ -33,3 +33,32 @@ console.log(name)
 export const Component = () => {
 	// return age > 22 ? <h1>Christian</h1> : <h1>Paul</h1>;
 };
+
+// Objects 
+
+const personsName = "Christian Paul"
+const personsAge = 21
+const isMarried = false
+
+const person = {
+	// Instead of this
+	// namePerson: "Christian",
+	// personsAge: 21, 
+	// isMarried: false
+
+	// we can do this 
+	name: personsName,
+	age: personsAge,
+	status: isMarried
+}
+
+
+// destructuring arrays
+// const {namePerson, personsAge, isMarried} = person
+
+// another example: changing a certain value of an object, which is the name only
+const person2 = { ...person, name: "Flores" }
+
+// same thing with an array: adding a value inside of an existing array
+const nameArr = ["Christian", "Jason", "Jaycon"]
+const nameArr2 = [...nameArr, "Philipp"]
