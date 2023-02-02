@@ -13,6 +13,9 @@ function App() {
 
 					return <h1 key={key}>{name}</h1>; // we can also pass here the key to remove the warning of not using it. But you cannot use the key as a prop in the child component.
 				})} */}
+				{names.map((name, key) => {
+					return <h2 key={key}>{name}</h2>;
+				})}
 			</>
 		</div>
 	);
