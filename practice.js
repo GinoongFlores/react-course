@@ -83,5 +83,8 @@ manipulateNames.map((names) => { // the names variable represents the arrays
 
 // using map method to remove repeated or intended names. It loops through the array and remove a certain value based on the given condition
 manipulateNames.filter((names) => {
-	return names !== "Jaycon"
+	// return names !== "Jaycon" 
 })
+
+// Async and Await + Fetch
+
