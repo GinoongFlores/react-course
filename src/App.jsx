@@ -1,10 +1,8 @@
 import "./App.css";
 
-import { useState } from "react";
 // A state in react is a variable that stores data that can be changed
-
+import { useState } from "react";
 import { Tasks } from "./Task";
-import { render } from "react-dom";
 
 function App() {
 	const [todoList, setTodoList] = useState([]);
@@ -31,10 +29,11 @@ function App() {
 	const completeTask = (id) => {
 		// make the list green if it was clicked
 		setTodoList(
+			// here we wrapped the todoList with its setTodoList function and were mapping through its array
 			todoList.map((task) => {
 				// Loop through the array and set the condition. If the id of the task is equal to the id that we want to complete, then return the all the element of the task but I want only the specific element completed as true
 				if (task.id === id) {
-					return { ...task, completed: true };
+					return { ...task, completed: true }; // here we wanted to return the specific task that we wanted to complete but the completed element will now be true
 				} else {
 					// if it's not the element that we wanted to complete then just return the task
 					return task;
@@ -67,8 +66,8 @@ function App() {
 							<Tasks
 								taskName={task.taskName}
 								id={task.id}
-								completed={task.completed}
-								completeTask={completeTask}
+								completed={task.completed} // here we are passing the completed property from the task property to the Tasks component
+								completeTask={completeTask} // here we are passing the completeTask function as a prop to the Tasks component so that we can call it in the Tasks component and pass the id of the task that we want to complete
 								deleteTask={deleteTask} // we can also pass props as functions. By calling the deleteTask function as a prop
 							/>
 						); // here we are calling the Tasks component and passing the task object as a prop
