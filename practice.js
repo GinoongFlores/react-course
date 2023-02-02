@@ -62,3 +62,26 @@ const person2 = { ...person, name: "Flores" }
 // same thing with an array: adding a value inside of an existing array
 const nameArr = ["Christian", "Jason", "Jaycon"]
 const nameArr2 = [...nameArr, "Philipp"]
+
+console.log(`
+filter() and reduce() method
+
+`)
+
+
+// the three fundamental functions of to manipulate an array: map(), filter(), reduce(). But only the map and filter method are most common in react.
+let manipulateNames = ["Christian", "Jason", "Philipp", "Jaycon", "Jaycon"]
+
+// using for of loop to loop through the array
+// for (const names of manipulateNames) {
+// 	console.log(names)
+// }
+
+manipulateNames.map((names) => { // the names variable represents the arrays
+	console.log(names)
+})
+
+// using map method to remove repeated or intended names. It loops through the array and remove a certain value based on the given condition
+manipulateNames.filter((names) => {
+	return names !== "Jaycon"
+})
