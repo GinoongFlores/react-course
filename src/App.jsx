@@ -21,7 +21,7 @@ function App() {
 			completed: false,
 		};
 
-		setTodoList([...todoList, task]); // here we are copying everything from the todoList and adding the new task to it and then setting it to the todoList
+		setTodoList(task.taskName !== "" ? [...todoList, task] : todoList); // here we getting the empty todoList array and adding the task object to it. We also have a condition here where if the taskName is not empty then we will passed the task object to the todoList array. If it is empty then we will just return the empty todoList array
 	};
 
 	const completeTask = (id) => {
@@ -29,7 +29,7 @@ function App() {
 		setTodoList(
 			// here we wrapped the todoList with its setTodoList function and were mapping through its array
 			todoList.map((task) => {
-				// Loop through the array and set the condition. If the id of the task is equal to the id that we want to complete, then return the all the element of the task but I want only the specific element completed as true
+				// Loop through the array and set the condition. If the id of the task is equal to the id that we want to complete, then return the all the element of the task but only the specific element completed as true
 				if (task.id === id) {
 					return { ...task, completed: true }; // here we wanted to return the specific task that we wanted to complete but the completed element will now be true
 				} else {
@@ -58,15 +58,15 @@ function App() {
 			<div className="todoList--tasks">
 				<h2>Added Tasks</h2>
 				<div className="list">
+					{/* here we are referencing the task parameter to access the properties of the task objects */}
 					{todoList.map((task) => {
-						// here the map loops through the todoList and returns the task
 						return (
 							<Tasks
 								taskName={task.taskName}
 								id={task.id}
 								completed={task.completed} // here we are passing the completed property from the task property to the Tasks component to be used as a condition to change the color of the task
-								completeTask={completeTask} // here we are passing the completeTask function as a prop to the Tasks component so that we can call it in the Tasks component and pass the id of the task that we want to complete
-								deleteTask={deleteTask} // we can also pass props as functions. By calling the deleteTask function as a prop
+								completeTaskBtn={completeTask} // here we are passing the completeTask function to the Tasks component to be used as a prop to be called when the button is clicked. The same goes on the deleteTask function
+								deleteTaskBtn={deleteTask}
 							/>
 						); // here we are calling the Tasks component and passing the task object as a prop
 					})}
