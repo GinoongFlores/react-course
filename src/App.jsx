@@ -8,8 +8,6 @@ function App() {
 	const [todoList, setTodoList] = useState([]);
 	const [newTask, setNewTask] = useState("");
 
-	const isGreen = true;
-
 	const handleChange = (event) => {
 		setNewTask(event.target.value); // setNewTask is a function that sets the value of newTask. The event target value gets the user input and we passed into the setNewTask function to set the value of newTask
 	};
@@ -18,7 +16,7 @@ function App() {
 		// the task here is an object that sets an id and task name to a task
 		const task = {
 			// here we want to grab the element in the array before the current one and add 1 to that id
-			id: todoList.length === 0 ? 1 : todoList[todoList.length - 1].id + 1, // again grabbing the last element of the array and adding one to it to increment the id by one. But, if the array has no id then we want to set it to 1
+			id: todoList.length === 0 ? 1 : todoList[todoList.length - 1].id + 1, // grabbing the last element of the array and adding one to it to increment the id by one. But, if the array has no id then we want to set it to 1
 			taskName: newTask,
 			completed: false,
 		};
@@ -66,7 +64,7 @@ function App() {
 							<Tasks
 								taskName={task.taskName}
 								id={task.id}
-								completed={task.completed} // here we are passing the completed property from the task property to the Tasks component
+								completed={task.completed} // here we are passing the completed property from the task property to the Tasks component to be used as a condition to change the color of the task
 								completeTask={completeTask} // here we are passing the completeTask function as a prop to the Tasks component so that we can call it in the Tasks component and pass the id of the task that we want to complete
 								deleteTask={deleteTask} // we can also pass props as functions. By calling the deleteTask function as a prop
 							/>

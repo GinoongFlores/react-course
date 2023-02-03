@@ -1,13 +1,12 @@
 export const Tasks = (props) => {
 	return (
 		<div className="taskLists">
-			{/* here we create a props of completed and called into the task component as a basis to change the color of the task based on the given condition*/}
 			<div
 				className="task"
-				style={{ backgroundColor: props.completed ? "green" : "white" }}
-			></div>
-
-			<h3>{props.taskName}</h3>
+				style={{ backgroundColor: props.completed ? "green" : "#242432" }}
+			>
+				<h3>{`${props.id} ${props.taskName}`}</h3>
+			</div>
 
 			<button onClick={() => props.completeTask(props.id)}>Complete</button>
 
