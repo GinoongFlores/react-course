@@ -21,7 +21,7 @@ function App() {
 			completed: false,
 		};
 
-		setTodoList(task.taskName !== "" ? [...todoList, task] : todoList); // here we getting the empty todoList array and adding the task object to it. We also have a condition here where if the taskName is not empty then we will passed the task object to the todoList array. If it is empty then we will just return the empty todoList array
+		setTodoList(task.taskName !== "" ? [...todoList, task] : todoList); // We have a condition here where if the taskName is not empty then we will passed the task object to the todoList array. If it is empty then we will just return the empty todoList array
 	};
 
 	const completeTask = (id) => {
