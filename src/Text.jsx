@@ -7,7 +7,7 @@ export const Text = () => {
 	// the useEffect is a function that will only run if the component is mounted
 	// the reason why we use useEffect is because we want to run some code when the component is mounted
 	useEffect(() => {
-		// this console log will display multiple times because we enable the <React.StrictMode> which checks our useEffect it's running correctly. On, the console it mounts first, then unmount, then mount lastly to check potential problems.
+		// this console log will display multiple times because we enable the <React.StrictMode> which checks our useEffect function if it's running correctly. On, the console it mounts first, then unmount, then mount lastly to check if there are potential problems.
 		console.log("Component is mounted");
 		document.title = `Title: ${text}`;
 
