@@ -1,12 +1,16 @@
 import { ChangeProfile } from "../components/ChangeProfile";
 
-export const Profile = (props) => {
+import { useContext } from "react";
+import { AppContext } from "../App";
+
+export const Profile = () => {
+	const { username } = useContext(AppContext);
+
 	return (
 		<header className="App-header">
-			<h2>Welcome to Profile Page User: {props.username}</h2>
+			<h2>Welcome to Profile Page User: {username}</h2>
 
-			{/* here we passed the setUsername props from the ChangeProfile component and it's a function now that has a prop of seUsername to be call on the App component*/}
-			<ChangeProfile setUsername={props.setUsername} />
+			<ChangeProfile />
 		</header>
 	);
 };

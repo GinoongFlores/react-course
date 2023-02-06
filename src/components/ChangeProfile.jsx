@@ -1,7 +1,11 @@
 import { useState } from "react";
 
-export const ChangeProfile = (props) => {
+import { useContext } from "react";
+import { AppContext } from "../App";
+
+export const ChangeProfile = () => {
 	const [newUsername, setNewUsername] = useState("");
+	const { setUsername } = useContext(AppContext); // here we just only the setUsername function from the App component to be used in this component to change the username state.
 
 	return (
 		<div>
@@ -12,10 +16,8 @@ export const ChangeProfile = (props) => {
 				}}
 			/>
 
-			{/* here we have a prop of setUsername to be called on the Profile component that holds the state function of newUsername  */}
-			<button onClick={() => props.setUsername(newUsername)}>
-				Change Username
-			</button>
+			{/* here we then passed the setUsername using the useContext API to get the new username */}
+			<button onClick={() => setUsername(newUsername)}>Change Username</button>
 		</div>
 	);
 };

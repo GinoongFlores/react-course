@@ -9,6 +9,9 @@ import { Navbar } from "./Navbar";
 import { useState, createContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+// A context is simply a container that contains all the states that we want to share across our components or group of components that shares the same state or values.
+export const AppContext = createContext();
+
 function App() {
 	const [username, setUsername] = useState("Christian");
 
@@ -18,27 +21,20 @@ function App() {
 		<div className="App">
 			{/* We wrapped this Router with the AppContext with the .Provider as we are providing the data inside of the components */}
 
-			<img src={reactLogo} className="App-logo" alt="logo" />
-			{/* Router specify where our routers are on our components or where can we access the react-router-dom in our components */}
-			<Router>
-				<Navbar />
+			{/* passed the state variable and function as values that we want to use*/}
+			<AppContext.Provider value={{ username, setUsername }}>
+				<img src={reactLogo} className="App-logo" alt="logo" />
+				<Router>
+					<Navbar />
 
-				{/* Routes define all the specific routes destination */}
-				<Routes>
-					{/* here we passed the username state as a prop to the Home and Profile component so they can have access into it */}
-					<Route path="/" element={<Home username={username} />} />
-
-					{/* here we passed the setUsername from the props of Profile component and now it holds the setUsername state function*/}
-					<Route
-						path="/profile"
-						element={<Profile username={username} setUsername={setUsername} />}
-					/>
-					<Route path="/contact" element={<Contact />} />
-
-					{/* we can add an asterisk to the path and an error message to the element to show none pages */}
-					<Route path="*" element={<h1>404: Not Found</h1>} />
-				</Routes>
-			</Router>
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/profile" element={<Profile />} />
+						<Route path="/contact" element={<Contact />} />
+						<Route path="*" element={<h1>404: Not Found</h1>} />
+					</Routes>
+				</Router>
+			</AppContext.Provider>
 		</div>
 	);
 }
