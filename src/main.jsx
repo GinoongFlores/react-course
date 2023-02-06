@@ -8,7 +8,8 @@ import "./index.css";
 ReactDOM.createRoot(document.getElementById("root")).render(
 	// React.StrictMode helps us to right better code by checking for problems in our code and giving us warnings in the console
 	<React.StrictMode>
-		{/* <App /> First example -fetching API about Cats */}
+		{/*  First example -fetching API about Cats */}
+		{/* <App /> */}
 		{/* <Sample1 /> */}
 		<Exercise />
 	</React.StrictMode>
