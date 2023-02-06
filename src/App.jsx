@@ -10,9 +10,6 @@ function App() {
 	// 	.then((data) => setCatFact(data.fact));
 
 	// We can easily fetch data using the Axios package
-
-	// run this only once when the component is mounted to prevent infinite loop
-
 	const fetchCatFact = () => {
 		axios.get("https://catfact.ninja/fact").then((res) => {
 			setCatFact(res.data.fact);
@@ -22,12 +19,6 @@ function App() {
 	useEffect(() => {
 		fetchCatFact(); // we call the function here
 	}, []); // we add an empty array to prevent infinite loop
-
-	// useEffect(() => {
-	// 	const fetchData = async () => {
-	// 		const result = await axios.get("https://catfact.ninja/fact");
-	// 	}
-	// })
 
 	return (
 		<div className="App">
